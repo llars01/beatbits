@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    font-family: hero-new, sans-serif;
+     -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently*/
+}
+header img{
+    width: 40vw;
+}
+.icon0{
+    background-image: url("/static/resources/bit-01.png");
+    animation: falling 5s 1s infinite linear normal;
+}
+.icon1{
+    background-image: url("/static/resources/bit-02.png");
+    animation: falling 5s 0s infinite linear normal;
+}
+.icon2{
+    background-image: url("/static/resources/bit-03.png");
+    animation: falling 6s 5s infinite linear normal;
+}
+.icon3{
+    background-image: url("/static/resources/bit-04.png");
+    animation: falling 3s 4s infinite linear normal;
+}
+.icon4{
+    background-image: url("/static/resources/bit-05.png");
+    animation: falling 5s 1s infinite linear normal;
+}
+.icon5{
+    background-image: url("/static/resources/bit-06.png");
+    animation: falling 4s 2s infinite linear normal;
+}
+.icon6{
+    background-image: url("/static/resources/bit-07.png");
+    animation: falling 7s 4s infinite linear normal;
+}
+
+
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background-image: radial-gradient(#1e2329, #050505);
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
+.topico{
+    display: block;
+    z-index: 1;
+    cursor: pointer;
+    width: 3vw;
+    height: 3vw;
+    position: absolute;
+}
+#back{
+    top: 20px;
+    left: 20px;
+}
+
+.error svg{
+    height: 2vw;
+    margin-right: 1vw;
+    fill: currentColor;
+}
+
+.error{
+    color: rgb(255, 110, 110);
+    display: flex;
+    font-size: 1vw;
+    align-items: center;
+    width: 20vw;
+    justify-content: center;
+
+}
+
+.topico svg{
+    fill: #666666;
+}
+.topico svg:hover{
+    fill: #ec6f32;
+    filter: drop-shadow(0 0 6px #ec6f32);
+}
+.block{
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.block:nth-child(1){
+    border: 3px solid #db2551;
+    color: #db2551;
+}.block:nth-child(2){
+    border: 3px solid #e03746;
+    color: #e03746;
+}.block:nth-child(3){
+    border: 3px solid #e24a3f;
+    color: #e24a3f;
+}.block:nth-child(4){
+    border: 3px solid #e65d39;
+    color: #e65d39;
+}.block:nth-child(5){
+    border: 3px solid #ec6f32;
+    color: #ec6f32;
+}.block:nth-child(6){
+    border: 3px solid #ee7d28;
+    color: #ee7d28;
+}.block:nth-child(7){
+    border: 3px solid #f28e20;
+    color: #f28e20;
+}.block:nth-child(8){
+    border: 3px solid #f6a11e;
+    color: #f6a11e;
+}.block:nth-child(9){
+    border: 3px solid #fab317;
+    color: #fab317;
+}
+.block.inactive:not(.block.inactive:hover){
+    border: 3px solid #969696 !important; 
+    color: #969696 !important;
+}
+.block.inactive{
+    background-image: url("/static/resources/add.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 35vh;
+    font-size: 2vw;
+    z-index: 2;
+    left: 35vw;
+    width: 28vw;
+    /* height: 30vh; */
+    background-color: #eedad1;
+    border-radius: 3vw;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.493);
+    text-align: center;
+    padding: 3vw 1vw;
+}
+.modal > div > p{
+    margin-top: 1vw;
+    font-size: 1.5vw;
+}
+.popup{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.backdrop{
+    display: block;
+    z-index: 2;
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(23, 19, 46, 0.637);
+}
+
+.modal button{
+    padding: 10px;
+    border: none;
+    border-radius: 0.5vw;
+    width: 10vw;
+    font-size: 1vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.185);
+}
+.modal button:hover{
+    background-color: #ec6f32;
+    cursor: pointer;
+    color: white;
+}
+@keyframes title {
+    from{transform: translateY(0);}
+    to{transform:translateY(-50px)}
+}
+@keyframes falling {
+    0%{
+        background-position: 50% -100%;
+    }
+    60%{
+        background-position: 50% 180%;
+    }
+    100%{
+        background-position: 50% 180%;
+    }
+}
+
+@keyframes floating {
+    0%{transform: translateY(+5px);}
+    100%{transform:translateY(-5px)}
+}

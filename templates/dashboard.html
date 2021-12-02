@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/styles/dashboard.css">
+{% endblock %}
+
+{% block body %}
+<main>
+    <section class="base">
+        <h2>Base Bits</h2>
+        <div>
+            {% for i in range(9) %}
+                <span class="block" data-audio="{{ blocks[i].path }}">{{ blocks[i].name }}</span>
+            {% endfor %}
+        </div>
+
+    </section>
+    <section class="user">
+        <h2>Your Bits</h2>
+        <div>
+            {% for i in range(9) %}
+                {% if i < userblocks|length %}
+                    <span class="block" data-audio="{{ userblocks[i].path }}">{{ userblocks[i].name }}</span>
+                {% else %}
+                    <span class="block inactive" data-audio=""></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <form action="/dashboard" method="post">
+            <input type="text" name="button">
+        </form>
+    </section>
+</main>
+<div class="popup">
+    <span class="backdrop return"></span>
+    <div class="modal">
+        <p>Are you sure you want to delete your beats?</p>
+        <div>
+            <button class="confirm">yes</button>
+            <button class="return">no</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>click an item to play sound</p>
+    <p>double click an item to delete it</p>
+    <p>click an empty item to add a new bit</p>
+</footer>
+<script src="/static/scripts/dashboard.js"></script>
+{% endblock %}

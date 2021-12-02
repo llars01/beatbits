@@ -1,0 +1,38 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/styles/create.css">
+{% endblock %}
+
+{% block body %}
+<main>
+    <form action="/create" method="post" enctype="multipart/form-data">
+        <div for="file-upload">
+            <h2>Bit Creation</h2>
+            <label for="file-upload">
+                <img src="/static/resources/file.png" alt="file icon">
+                <p>Upload your music file</p>
+            </label>
+            {% if error %}
+            <div class="error">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                <p>{{error}}</p>
+            </div>
+            {% endif %}
+            <input type="text" name="name" placeholder="Bit Name">
+            <input type="hidden" name="uploaded" id="uploaded" value="0" >
+
+        </div>
+        <input id="file-upload" type="file" name="file" accept="audio/mp3"/>
+        <span><button type="submit">create</button></span>
+
+    </form>
+
+</main>
+<script src="/static/scripts/create.js"></script>
+{% endblock %}
+

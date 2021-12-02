@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block head %}
+<link rel="stylesheet" href="/static/styles/index.css">
+{% endblock %}
+{% block body %}
+    <div id="stars">
+        {% for i in range(7) %}
+        <div class="star icon{{ i }}"></div>
+        {% endfor %}
+    </div>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <script src="/static/scripts/index.js"></script>
+{% endblock %}
+
