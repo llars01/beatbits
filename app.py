@@ -125,7 +125,12 @@ def login():
             return render_template("login.html", error=error)
         query = "SELECT * FROM users WHERE username = ?"
         userdata = sql2dict(query, [username])
-        if len(userdata) != 1 or not check_password_hash(userdata[0]["hash"], request.form["password"]):
+        if len(userdata) != 1:
+            error = "invalid username"
+            return render_template("login.html", error=error)
+        hash = userdata[0]["hash"]
+        password = request.form["password"]
+        if not check_password_hash(hash , password):
             error = "username and password did not match"
             return render_template("login.html", error=error)
         session["user_id"] = userdata[0]["id"]
