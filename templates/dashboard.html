@@ -1,11 +1,12 @@
 {% extends "template.html" %}
-
+<!-- dashboard page with a overvieuw of all bits and the ability to manage them -->
 {% block head %}
 <link rel="stylesheet" href="/static/styles/dashboard.css">
 {% endblock %}
 
 {% block body %}
 <main>
+    <!-- base bits -->
     <section class="base">
         <h2>Base Bits</h2>
         <div>
@@ -15,22 +16,31 @@
         </div>
 
     </section>
+    <!-- users bits -->
     <section class="user">
         <h2>Your Bits</h2>
         <div>
+            
             {% for i in range(9) %}
+                <!-- place as much bits as the user has -->
                 {% if i < userblocks|length %}
                     <span class="block" data-audio="{{ userblocks[i].path }}">{{ userblocks[i].name }}</span>
                 {% else %}
+                <!-- then fill up to 9 with empty bits -->
                     <span class="block inactive" data-audio=""></span>
                 {% endif %}
             {% endfor %}
         </div>
+
+        <!-- form to delete bits (function in javascript, invisible on page) -->
         <form action="/dashboard" method="post">
             <input type="text" name="button">
         </form>
+
     </section>
 </main>
+
+<!-- dynamic modal popup -->
 <div class="popup">
     <span class="backdrop return"></span>
     <div class="modal">
@@ -41,7 +51,9 @@
         </div>
     </div>
 </div>
+
 <footer>
+    <!-- footer with explanation about the controls -->
     <p>click an item to play sound</p>
     <p>double click an item to delete it</p>
     <p>click an empty item to add a new bit</p>

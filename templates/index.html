@@ -3,12 +3,14 @@
 <link rel="stylesheet" href="/static/styles/index.css">
 {% endblock %}
 {% block body %}
+<!-- background with falling bits (nickname stars) -->
     <div id="stars">
         {% for i in range(7) %}
         <div class="star icon{{ i }}"></div>
         {% endfor %}
     </div>
     <main>
+        <!-- main content differs between login register and home -->
         {% block main %}
         {% endblock %}
     </main>

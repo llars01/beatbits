@@ -1,9 +1,11 @@
 {% extends "index.html" %}
-
+<!-- page to log into your account -->
 {% block main %}
 <form action="/login" method="post">
     <input type="text" name="name" placeholder="name">
     <input type="password" name="password" placeholder="password">
+
+    <!-- displays error message if it exists -->
     {% if error %}
     <div class="error">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -14,6 +16,7 @@
         <p>{{error}}</p>
     </div>
     {% endif %}
+    
     <div>
         <a href="/register">Register</a>
         <a type="submit">Log in</a>

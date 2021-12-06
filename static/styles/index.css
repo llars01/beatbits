@@ -33,11 +33,10 @@ header img{
 main > a:hover{
     transform: scale(1.5);
     filter: drop-shadow(1px 1px 15px rgba(105, 105, 105, 0.911));
-
     cursor: pointer;
 }
 
-main > a{
+main > a, h2{
     display: block;
     text-align: center;
     text-decoration: none;
